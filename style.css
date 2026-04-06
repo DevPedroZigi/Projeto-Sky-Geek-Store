@@ -4,19 +4,37 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e9f0ff;
     color: #222;
+    background-color: #f0f0f0; 
+    background-image: url('images/ceu\ pixelado.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
 header {
     position: relative;
-    overflow: visible; /* IMPORTANTE: mude de hidden para visible */
+    overflow: visible; 
     background-color: #7fc7ff;
-    /* ... seus gradientes ... */
     color: #fff;
     text-align: center;
-    padding: 4rem 1rem 5rem; /* Aumentei o padding inferior para dar espaço */
+    padding: 4rem 1rem 5rem; 
     margin-bottom: 2rem; /* Espaço para os botões não atropelarem o conteúdo abaixo */
+    padding-bottom: 5rem;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Espessura da linha */
+    background-color: #111; /* A base preta da linha */
+    
+    /* O Efeito Neon (Brilho Roxo/Azul para destacar) */
+    box-shadow: 0 0 10px #7d3cff, 0 0 20px #7d3cff; 
+    z-index: 5; /* Fica abaixo dos botões, mas acima do fundo */
 }
 
 .clouds {
@@ -68,22 +86,24 @@ header p {
     margin: 0 auto;
     padding: 2rem;
     display: flex;
-    flex-wrap: wrap; /* Permite que os produtos pulem de linha */
-    gap: 20px;       /* Espaçamento entre os cards */
+    flex-wrap: wrap; 
+    gap: 20px;       
     justify-content: center;
 }
 
 .product {
-    background: white;
+    background: rgba(224, 239, 255, 0.5); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.6); 
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo do card em coluna */
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    width: 280px; /* Largura fixa para os cards ficarem uniformes */
-    transition: transform 0.3s ease;
+    width: 300px;
 }
 
 .product:hover {
@@ -92,11 +112,14 @@ header p {
 
 .product img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Garante que as imagens não fiquem esticadas */
+    height: 250px;
+    object-fit: contain;
+    background-color: transparent !important; 
+    mix-blend-mode: multiply; 
+    
     margin-bottom: 1rem;
-    border-radius: 10px;
 }
+
 .product h3 {
     margin: 0;
 }
@@ -127,7 +150,7 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem;
-    margin-top: 4rem; /* Cria um respiro após os produtos */
+    margin-top: 4rem; 
     width: 100%;
 }
 
@@ -152,14 +175,13 @@ footer {
     flex-wrap: wrap; /* Para não quebrar no celular */
 }
 
-/* Estilo Base do Botão */
 .btn {
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
     font-size: 1.1rem;
     font-weight: bold;
     padding: 15px 35px;
-    border-radius: 50px; /* Deixa ele bem arredondado como na foto */
+    border-radius: 50px;
     color: white;
     text-transform: uppercase;
     transition: all 0.3s ease;
@@ -170,13 +192,13 @@ footer {
 
 /* Botão Azul (Encomende o seu) */
 .btn-blue {
-    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    background: linear-gradient(135deg, #166475 0%, #3a7bd5 100%);
     box-shadow: 0 0 20px rgba(58, 123, 213, 0.6);
 }
 
 /* Botão Ciano (Pronta Entrega) */
 .btn-cyan {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #580058 0%, #4d0049 100%);
     box-shadow: 0 0 20px rgba(11, 80, 83, 0.6);
 }
 
@@ -198,14 +220,34 @@ footer {
     display: flex;
     justify-content: center;
     gap: 25px;
-    
-    /* O SEGREDO DO ALINHAMENTO: */
     position: absolute;
-    bottom: 0; /* Cola no fundo do header */
+    bottom: 0; 
     left: 0;
     right: 0;
-    transform: translateY(50%); /* Move 50% da altura do botão para baixo da linha */
+    transform: translateY(50%); 
     
     z-index: 10;
     flex-wrap: wrap;
 }
+
+.container h2 {
+    width: 100%; /* Garante que ele ocupe a largura toda para poder centralizar */
+    text-align: center; 
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 3rem; /* Dá um espaço maior entre o título e os produtos */
+    
+    /* Sombra para destacar bem o texto sobre o fundo de nuvens */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(125, 60, 255, 0.5);
+    
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.price {
+    font-weight: bold;
+    color: #5b21b6; 
+    font-size: 1.2rem;
+}
+
