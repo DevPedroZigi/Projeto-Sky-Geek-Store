@@ -12,6 +12,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 header {
     position: relative;
     overflow: visible; 
@@ -19,8 +20,7 @@ header {
     color: #fff;
     text-align: center;
     padding: 4rem 1rem 5rem; 
-    margin-bottom: 2rem; /* Espaço para os botões não atropelarem o conteúdo abaixo */
-    padding-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 header::after {
@@ -29,34 +29,32 @@ header::after {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 4px; /* Espessura da linha */
-    background-color: #111; /* A base preta da linha */
-    
-    /* O Efeito Neon (Brilho Roxo/Azul para destacar) */
+    height: 4px;
+    background-color: #111; 
     box-shadow: 0 0 10px #7d3cff, 0 0 20px #7d3cff; 
-    z-index: 5; /* Fica abaixo dos botões, mas acima do fundo */
+    z-index: 5;
 }
 
-.clouds {
+.nuvens {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 1;
 }
 
-.cloud {
+.nuvem {
     position: absolute;
     width: 90px;
     height: auto;
     z-index: 1;
 }
 
-.c1 { top: 8px; left: 5%; transform: scale(0.9); }
-.c2 { top: 80px; left: 20%; transform: scale(0.75); }
-.c3 { top: 10px; left: 45%; transform: scale(0.85); }
-.c4 { top: 130px; left: 62%; transform: scale(0.7); }
-.c5 { top: 15px; left: 75%; transform: scale(0.72); }
-.c6 { top: 40px; right: 5%; transform: scale(0.68); }
+.n1 { top: 8px; left: 5%; transform: scale(0.9); }
+.n2 { top: 80px; left: 20%; transform: scale(0.75); }
+.n3 { top: 10px; left: 45%; transform: scale(0.85); }
+.n4 { top: 130px; left: 62%; transform: scale(0.7); }
+.n5 { top: 15px; left: 75%; transform: scale(0.72); }
+.n6 { top: 40px; right: 5%; transform: scale(0.68); }
 
 header h1 {
     position: relative;
@@ -81,7 +79,8 @@ header p {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.container {
+/* Alterado de .container para .conteudo-principal */
+.conteudo-principal {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -91,11 +90,23 @@ header p {
     justify-content: center;
 }
 
-.product {
+/* Título centralizado dentro do conteúdo principal */
+.conteudo-principal h2 {
+    width: 100%;
+    text-align: center; 
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(125, 60, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.produto {
     background: rgba(224, 239, 255, 0.5); 
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px);
-    
     border: 1px solid rgba(255, 255, 255, 0.6); 
     padding: 1.5rem;
     border-radius: 12px;
@@ -104,32 +115,31 @@ header p {
     flex-direction: column;
     align-items: center;
     width: 300px;
+    transition: transform 0.3s ease;
 }
 
-.product:hover {
+.produto:hover {
     transform: translateY(-10px);
 }
 
-.product img {
+.produto img {
     width: 100%;
     height: 250px;
     object-fit: contain;
     background-color: transparent !important; 
     mix-blend-mode: multiply; 
-    
     margin-bottom: 1rem;
 }
 
-.product h3 {
-    margin: 0;
-}
-.product p {
-    margin: 0.5rem 0;
-}
-.price {
+.produto h3 { margin: 0; }
+.produto p { margin: 0.5rem 0; }
+
+.preco {
     font-weight: bold;
-    color: #7d3cff;
+    color: #5b21b6; 
+    font-size: 1.2rem;
 }
+
 button {
     background: #7d3cff;
     color: #fff;
@@ -154,28 +164,31 @@ footer {
     width: 100%;
 }
 
-@keyframes float {
+/* Animação traduzida para 'flutuar' */
+@keyframes flutuar {
     0% { transform: translateY(0px) scale(0.9); }
     50% { transform: translateY(-10px) scale(0.95); }
     100% { transform: translateY(0px) scale(0.9); }
 }
 
-/* Aplicando a animação com tempos diferentes para cada nuvem */
-.c1, .c3, .c5 { animation: float 4s ease-in-out infinite; }
-.c2, .c4, .c6 { animation: float 6s ease-in-out infinite reverse; }
+.n1, .n3, .n5 { animation: flutuar 4s ease-in-out infinite; }
+.n2, .n4, .n6 { animation: flutuar 6s ease-in-out infinite reverse; }
 
-/* Container dos botões */
-.nav-buttons {
+/* Alterado de .nav-buttons para .botoes-navegacao */
+.botoes-navegacao {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-top: 30px;
-    position: relative;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    transform: translateY(50%); 
     z-index: 10;
-    flex-wrap: wrap; /* Para não quebrar no celular */
+    flex-wrap: wrap;
 }
 
-.btn {
+.botao {
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
     font-size: 1.1rem;
@@ -186,72 +199,33 @@ footer {
     text-transform: uppercase;
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px); /* Efeito de vidro */
+    backdrop-filter: blur(5px);
     display: inline-block;
 }
 
-/* Botão Azul (Encomende o seu) */
-.btn-blue {
+.botao-azul {
     background: linear-gradient(135deg, #166475 0%, #3a7bd5 100%);
     box-shadow: 0 0 20px rgba(58, 123, 213, 0.6);
 }
 
-/* Botão Ciano (Pronta Entrega) */
-.btn-cyan {
+.botao-ciano {
     background: linear-gradient(135deg, #580058 0%, #4d0049 100%);
     box-shadow: 0 0 20px rgba(11, 80, 83, 0.6);
 }
 
-/* Botão Roxo (Saiba Mais) */
-.btn-purple {
+.botao-roxo {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     box-shadow: 0 0 20px rgba(106, 17, 203, 0.6);
 }
 
-/* Efeito de Hover (Passar o Mouse) */
-.btn:hover {
+.botao:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
     border: 2px solid rgba(255, 255, 255, 0.8);
     letter-spacing: 1px;
 }
 
-.nav-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    position: absolute;
-    bottom: 0; 
-    left: 0;
-    right: 0;
-    transform: translateY(50%); 
-    
-    z-index: 10;
-    flex-wrap: wrap;
-}
-
-.container h2 {
-    width: 100%; /* Garante que ele ocupe a largura toda para poder centralizar */
-    text-align: center; 
-    font-family: 'Orbitron', sans-serif;
-    color: white;
-    font-size: 2.5rem;
-    margin-bottom: 3rem; /* Dá um espaço maior entre o título e os produtos */
-    
-    /* Sombra para destacar bem o texto sobre o fundo de nuvens */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(125, 60, 255, 0.5);
-    
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.price {
-    font-weight: bold;
-    color: #5b21b6; 
-    font-size: 1.2rem;
-}
-
-.about-content {
+.conteudo-sobre {
     background: rgba(224, 239, 255, 0.5); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -264,7 +238,7 @@ footer {
     margin: 0 auto;
 }
 
-.about-content h2 {
+.conteudo-sobre h2 {
     color: #7d3cff; 
     font-family: 'Orbitron', sans-serif;
     margin-top: 2rem;
