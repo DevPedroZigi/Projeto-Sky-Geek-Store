@@ -473,3 +473,68 @@ footer {
     box-shadow: 0 0 30px rgba(255, 65, 108, 0.8);
     transform: scale(1.1) rotate(-2deg); /* Um leve giro para dar destaque */
 }
+
+/* Container específico para manter o grid bonito */
+.container-promocoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card de Promoção com borda animada ou diferenciada */
+.promo-card {
+    position: relative;
+    border: 2px solid #ff4b2b;
+    overflow: hidden;
+}
+
+/* Selo de Desconto no canto do card */
+.tag-desconto {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: #ff4b2b;
+    color: white;
+    padding: 5px 35px;
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 10px rgba(255, 75, 43, 0.5);
+    z-index: 5;
+}
+
+/* Estilização dos Preços */
+.preco-antigo {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.preco-novo {
+    color: #ff4b2b;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+    text-shadow: 0 0 5px rgba(255, 75, 43, 0.2);
+}
+
+/* Botão de Compra da Promoção */
+.botao-comprar-promo {
+    background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+}
+
+.botao-comprar-promo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+}
+
