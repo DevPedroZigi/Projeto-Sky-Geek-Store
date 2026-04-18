@@ -415,11 +415,9 @@ footer {
 }
 
 .input-arquivo {
-    .input-arquivo {
     width: 100%;
     min-height: 100%;
     cursor: pointer;
-    
     /* Posiciona o texto do sistema "Nenhum arquivo..." à direita */
     display: flex;
     align-items: center;
@@ -431,7 +429,6 @@ footer {
     appearance: none;
     border: none;
     background: transparent;
-}
 }
 
 .aviso-formato {
